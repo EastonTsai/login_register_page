@@ -1,25 +1,26 @@
+import 'styles/global.scss';
+
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import HomePage from './pages/HomePage';
+import LoginPage from 'pages/LoginPage';
+import StorePage from 'pages/StorePage';
+import SettingPage from 'pages/SettingPage';
+import ShoppingCartPage from 'pages/ShoppingCart';
+
+const basename = process.env.BASE_URL
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter basename={basename}>
+      <Routes>
+        <Route path='/shopping_cart' element={<ShoppingCartPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/store' element={<StorePage />} />
+        <Route path='/setting' element={<SettingPage />} />
+        <Route path='/' element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
