@@ -1,0 +1,88 @@
+@import 'styles/global.scss';
+
+.banner-container {
+  position: relative;
+}
+
+.banner-list {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.banner-list_item {
+  flex-shrink: 0;
+  width: 100%;
+  aspect-ratio: 16/6;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: .3s;
+
+  img {
+    width: 100%;
+  }
+}
+
+%banner-arrow {
+  //箭頭的共同樣式
+  cursor: pointer;
+  transform: translateY(-50%);
+
+  svg {
+    width: 30px;
+    height: 30px;
+
+    path {
+      stroke: #ccc;
+      transition: .3s;
+    }
+  }
+
+  &:hover path {
+    stroke: #111;
+  }
+}
+
+.control-left {
+  @extend %banner-arrow;
+  @include absolute(50%, 10px, none, none);
+}
+
+.control-right {
+  @extend %banner-arrow;
+  @include absolute(50%, none, 10px, none);
+}
+
+.control-bottom {
+  @include absolute(none, 50%, none, 10px);
+  transform: translateX(-50%);
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: rgba(200, 200, 200, .7);
+  display: flex;
+  gap: 1rem;
+
+  .circle {
+    flex-shrink: 0;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background-color: #888;
+    transition: .2s;
+    cursor: pointer;
+
+    &:hover {
+      outline: 3px solid #111;
+    }
+
+    &.active {
+      outline: 3px solid #111;
+    }
+  }
+}
+
+// .banner-control {
+// }

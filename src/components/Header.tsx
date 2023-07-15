@@ -9,8 +9,7 @@ import { Link, useLocation } from 'react-router-dom'
 
 const Header = () => {
   const currentPath = useLocation().pathname.split('/')[1]
-  //
-  console.log(currentPath)
+  //useLocation().split('/') = ['' , 'pathname] 所以要取第二個
   return (
     <header className="header">
       <div className="header-container container">
