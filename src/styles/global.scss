@@ -1,5 +1,12 @@
 @import 'styles/reset200802.css';
 
+:root {
+  --main-color: #82663A; //銀煤竹
+  --second-color: #4A593D; //柳煤竹 #144
+  --third-color: #ED784A; //纁 #054
+  --error-color: #AB3B3A; //真朱 #025
+}
+
 .container {
   width: 90%;
   margin: auto;

@@ -1,9 +1,9 @@
 import 'styles/Header.scss'
-import { ReactComponent as LoginIcon } from 'icons/User Circle_.svg'
+import { ReactComponent as LoginIcon } from 'icons/user_Circle.svg'
 import { ReactComponent as SettingIcon } from 'icons/setting.svg'
 import { ReactComponent as SearchIcon } from 'icons/search.svg'
 import { ReactComponent as StoreIcon } from 'icons/store.svg'
-import { ReactComponent as ShoppingCart } from 'icons/shopping-cart.svg'
+import { ReactComponent as Cart } from 'icons/cart.svg'
 
 import { Link, useLocation } from 'react-router-dom'
 
@@ -19,7 +19,7 @@ const Header = () => {
         <ul className="header_nav">
           <li className={`nav_item ${currentPath === 'shopping_cart' && 'active'}`}>
             <Link to='/shopping_cart'>
-              <ShoppingCart />
+              <Cart />
               <p>購物車</p>
             </Link>
           </li>

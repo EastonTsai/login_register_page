@@ -28,11 +28,16 @@
     svg {
       width: 30px;
       height: 30px;
+
+      path {
+        stroke: var(--main-color);
+      }
     }
 
     p {
       position: relative;
       font-weight: 700;
+      color: var(--main-color);
     }
 
     p::after {
@@ -40,7 +45,7 @@
       display: block;
       position: absolute;
       width: 0%;
-      border-bottom: 2px solid #888;
+      border-bottom: 2px solid var(--main-color);
       margin-top: 0.25rem;
       transition: .3s;
     }
@@ -50,7 +55,7 @@
     }
 
     &.active p::after {
-      border-bottom: 2px solid #000;
+      border-bottom: 2px solid var(--main-color);
       width: 100%;
     }
   }

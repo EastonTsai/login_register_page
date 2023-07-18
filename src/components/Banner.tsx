@@ -1,19 +1,19 @@
 import 'styles/Banner.scss';
 import { ReactComponent as ArrowLeftIcon } from 'icons/arrow left.svg'
 import { ReactComponent as ArrowRightIcon } from 'icons/arrow right.svg'
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 const Banner = (props: { banner?: string[] }) => {
   const { banner } = props
   const [focus, setFocus] = useState(1)
-  const transform = { transform: `translateX(-${100 * (focus - 1)}%)` }//計算要往左移的數值
 
+  const transform = { transform: `translateX(-${100 * (focus - 1)}%)` }//計算要往左移的數值
 
   const handleClickArrow = (arrow: boolean) => {//true : 右,false : 左
     if (!banner) {
       return
     }
-    const length = banner?.length
+    const length = banner.length
     if (arrow === true) {
       if (focus === length) {
         return setFocus(1)
