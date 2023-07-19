@@ -41,7 +41,7 @@ const Header = () => {
               <p>設定</p>
             </Link>
           </li>
-          <li className={`nav_item ${currentPath === 'login' && 'active'}`}>
+          <li className={`nav_item ${currentPath === 'login' || currentPath === 'register' ? 'active' : ''}`}>
             <Link to='/login'>
               <LoginIcon />
               <p>登入</p>

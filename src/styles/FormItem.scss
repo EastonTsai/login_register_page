@@ -1,0 +1,20 @@
+@import 'styles/global.scss';
+
+.form-item_input {
+  border: none;
+  padding: 0.25rem 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.form-item_password-wrap {
+  .form-item_view-button {
+    cursor: default;
+    padding: 0 0.5rem;
+
+    svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

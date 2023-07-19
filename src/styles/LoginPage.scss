@@ -1,0 +1,70 @@
+@import 'styles/global.scss';
+
+
+.login_container {
+  >form {
+    margin: auto;
+    max-width: 500px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .form-item {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    >label {
+      flex-shrink: 0;
+      font-size: 1.25rem;
+      color: var(--main-color);
+    }
+
+    >input {
+      flex: 1 1;
+      font-size: 1.25rem;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+  }
+
+  .form-button {
+    width: 100%;
+    padding: 0.5rem;
+    margin: 1rem 0;
+    font-size: 1.25rem;
+    border: none;
+    border-radius: 8px;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--main-color);
+      color: #fff;
+    }
+  }
+
+  .login-register-button {
+    display: flex;
+    justify-content: flex-end;
+
+    span {
+      text-align: right;
+      color: #ccc;
+      transition: .2s;
+
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}

@@ -1,34 +1,29 @@
-import 'styles/LoginPage.scss';
+
+
 import Header from "components/Header"
 import { InputItem, PasswordInput } from "components/FormItem"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 
-const LoginPage = () => {
+const RegisterPage = () => {
   const [account, setAccount] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [checkPassword, setCheckPassword] = useState('')
-  const [checkPasswordView, setCheckPasswordView] = useState(true)
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (
-      account.trim().length < 1 ||
-      password.trim().length < 1 ||
-      checkPassword.trim().length < 1
-    ) {
-      console.log('輸入空白')
-      return
-    }
     console.log('654')
   }
+
+
   return (
     <div className="login-page">
       <Header />
       <div className="login">
         <div className="login_container container">
           <form onSubmit={handleSubmit}>
-            <h1>登入</h1>
+            <h1>註冊</h1>
             <div className="form-item">
               <label htmlFor="account">帳號 : </label>
               <InputItem
@@ -36,6 +31,16 @@ const LoginPage = () => {
                 placeholder="請輸入帳號"
                 value={account}
                 onChange={(e) => setAccount(e.target.value)}
+              />
+            </div>
+            <div className="form-item">
+              <label htmlFor="account">Email : </label>
+              <InputItem
+                id='account'
+                type='email'
+                placeholder="請輸入 Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <PasswordInput
@@ -52,10 +57,11 @@ const LoginPage = () => {
               placeholder='請再次輸入密碼'
               onChange={(e) => setCheckPassword(e.target.value)}
             />
-            <button className='form-button'>確認登入</button>
+
+            <button className='form-button'>申請註冊</button>
             <div className="login-register-button">
-              <Link to='/register'>
-                <span>還沒註冊?</span>
+              <Link to='/login'>
+                <span>已有帳號</span>
               </Link>
             </div>
           </form>
@@ -64,6 +70,4 @@ const LoginPage = () => {
     </div>
   )
 }
-
-
-export default LoginPage
+export default RegisterPage

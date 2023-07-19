@@ -1,10 +1,15 @@
 @import 'styles/reset200802.css';
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;500;700&display=swap');
 
 :root {
   --main-color: #82663A; //銀煤竹
   --second-color: #4A593D; //柳煤竹 #144
   --third-color: #ED784A; //纁 #054
   --error-color: #AB3B3A; //真朱 #025
+}
+
+* {
+  font-family: 'Noto Sans TC', sans-serif;
 }
 
 .container {

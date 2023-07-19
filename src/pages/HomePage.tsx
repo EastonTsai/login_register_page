@@ -1,4 +1,6 @@
 import Banner from "components/Banner"
+import ClassificationList from "components/ClassificationList"
+import Footer from "components/Footer"
 import Header from "components/Header"
 import Section from "components/Section"
 const banner = [
@@ -138,6 +140,7 @@ const HomePage = () => {
         <Header />
         <Banner banner={banner} />
         <main className="home-page_main">
+          <ClassificationList />
           {sections.map(item =>
             <Section
               key={item.classification}
@@ -146,7 +149,7 @@ const HomePage = () => {
             />
           )}
         </main>
-        這是首頁
+        <Footer />
       </div>
     </>
   )
