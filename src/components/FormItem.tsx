@@ -28,24 +28,26 @@ interface passwordViewType {
   password: string,
   placeholder: string,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  error?: string,
 }
 export const PasswordInput = (props: passwordViewType) => {
-  const { className, label, password, placeholder, onChange } = props
+  const { className, label, password, placeholder, onChange, error } = props
   const [passwordView, setPasswordView] = useState(false)
   return (
     <div className={`${className} form-item_password-wrap`}>
       <label htmlFor="password">{label} </label>
       <InputItem
         id='password'
-        type={passwordView ? 'password' : 'text'}
+        type={!passwordView ? 'password' : 'text'}
         placeholder={placeholder}
         value={password}
         onChange={onChange}
       />
+      <div className="form-item_error">{error}</div>
       <span
         className="form-item_view-button"
         onClick={() => setPasswordView(!passwordView)}
-      >{passwordView ?
+      >{!passwordView ?
         <EyeCloseIcon /> : <EyeOpenIcon />}</span>
     </div>
   )

@@ -8,7 +8,11 @@
 }
 
 .form-item_password-wrap {
+  position: relative;
+
   .form-item_view-button {
+    position: absolute;
+    left: -40px;
     cursor: default;
     padding: 0 0.5rem;
 
