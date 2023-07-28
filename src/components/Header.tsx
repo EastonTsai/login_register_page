@@ -1,7 +1,7 @@
 import 'styles/Header.scss'
 import { ReactComponent as LoginIcon } from 'icons/user_Circle.svg'
 import { ReactComponent as SettingIcon } from 'icons/setting.svg'
-import { ReactComponent as SearchIcon } from 'icons/search.svg'
+// import { ReactComponent as SearchIcon } from 'icons/search.svg'
 import { ReactComponent as StoreIcon } from 'icons/store.svg'
 import { ReactComponent as Cart } from 'icons/cart.svg'
 
@@ -23,8 +23,8 @@ const Header = () => {
               <p>購物車</p>
             </Link>
           </li>
-          <li className={`nav_item ${currentPath === 'store' && 'active'}`}>
-            <Link to='/store'>
+          <li className={`nav_item ${currentPath === 'my_store' && 'active'}`}>
+            <Link to='/my_store'>
               <StoreIcon />
               <p>商店</p>
             </Link>

@@ -1,0 +1,126 @@
+@import 'styles/global.scss';
+
+.project_tag {
+  background-color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px #bbb;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover,
+  &.active {
+    box-shadow: 2px 2px 2px #000;
+    transform: translateY(-3px);
+  }
+}
+
+.project_card {
+  background-color: #fff;
+  border-radius: 8px;
+  cursor: default;
+
+  .card_created-time {
+    text-align: center;
+    padding: 0.25rem;
+    font-size: 0.75rem;
+  }
+
+  .card_image {
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .card_text {
+    padding: 0.5rem;
+
+  }
+
+  .card_button {
+    display: flex;
+    border-top: 1px solid #bbb;
+
+    >div {
+      flex: 1;
+      text-align: center;
+      padding: 0.5rem;
+      transition: .2s;
+      color: #ccc;
+    }
+
+    .button-patch {
+      border-right: 1px solid #bbb;
+      border-radius: 0 0 0 8px;
+
+      &:hover {
+        background-color: var(--second-color);
+        color: #fff;
+      }
+    }
+
+    .button-delete {
+      border-radius: 0 0 8px 0;
+
+      &:hover {
+        background-color: var(--error-color);
+        color: #fff;
+      }
+    }
+  }
+}
+
+.project_list-item {
+  display: flex;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid #bbb;
+  align-items: stretch;
+  cursor: default;
+  position: relative;
+
+  .item_image {
+    width: 10%;
+    padding: 0.5rem;
+
+    img {
+      width: 100%;
+      max-height: 100%;
+    }
+  }
+
+  .item_title {
+    width: 20%;
+    padding: 0 0.5rem;
+    border-left: 1px solid #bbb;
+  }
+
+  .item_created {
+    width: 10%;
+    padding: 0 0.5rem;
+    border-left: 1px solid #bbb;
+  }
+
+  .item_button {
+    position: absolute;
+    height: 100%;
+    right: 0;
+    top: 0;
+
+    >div {
+      height: 50%;
+      @extend %middle;
+      color: #bbb;
+      transition: .2s;
+      padding: 0 .5rem;
+    }
+
+    .button-patch:hover {
+      @include button-hover(var(--second-color))
+    }
+
+    .button-delete:hover {
+      @include button-hover(var(--error-color))
+    }
+  }
+}

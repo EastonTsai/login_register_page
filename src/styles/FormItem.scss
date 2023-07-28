@@ -22,3 +22,28 @@
     }
   }
 }
+
+.form-item_option-item {
+  display: flex;
+  align-items: center;
+  gap: .25rem;
+  cursor: default;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background-color: #ccc;
+
+  >span {
+    font-size: .75rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #fff;
+    border-radius: 50%;
+    text-align: center;
+    transition: .2s;
+
+    &:hover {
+      background-color: var(--error-color);
+      color: #fff;
+    }
+  }
+}

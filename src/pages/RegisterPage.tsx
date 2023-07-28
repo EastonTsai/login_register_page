@@ -26,9 +26,10 @@ const RegisterPage = () => {
     const validateResult = validateRegister(account, email, password, checkPassword)
     if (validateResult) {
       setErrorMessage(validateResult)
-      return console.log('前端驗證失敗')
+      // console.log('前端驗證失敗')
+      return
     }
-    console.log('驗證通過')
+    // console.log('驗證通過')
     //! 前端驗證完成 , 開始發出請求
 
   }
@@ -66,7 +67,7 @@ const RegisterPage = () => {
   return (
     <div className="login-page">
       <Header />
-      <div className="login">
+      <div className="login-page_main">
         <div className="login_container container">
           <form onSubmit={handleSubmit}>
             <h1>註冊</h1>
@@ -77,6 +78,7 @@ const RegisterPage = () => {
                 placeholder="最多12個字元 (包含英文大小寫)"
                 value={account}
                 onChange={(e) => handleChangeValue(e.target.value, 'account')}
+                maxlength={12}
               />
               <div className="form-item_error">{errorMessage?.accountError}</div>
             </div>
@@ -98,6 +100,7 @@ const RegisterPage = () => {
               placeholder='請輸入4-12個字元 (包含英文大小寫及數字)'
               onChange={(e) => handleChangeValue(e.target.value, 'password')}
               error={errorMessage?.passwordError}
+              maxlength={12}
             />
             <PasswordInput
               className={`form-item ${errorMessage?.checkPasswordError && 'error'}`}

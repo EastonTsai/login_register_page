@@ -9,9 +9,11 @@ interface inputItem {
   placeholder: string,
   value: string | number,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void,
+  maxlength?: number,
 }
 export const InputItem = (props: inputItem) => {
-  const { id, type, placeholder, value, onChange } = props
+  const { id, type, placeholder, value, onChange, onKeyDown, maxlength } = props
   return (
     <input className='form-item_input'
       id={id}
@@ -19,6 +21,8 @@ export const InputItem = (props: inputItem) => {
       placeholder={placeholder}
       value={value}
       onChange={onChange}
+      onKeyDown={onKeyDown}
+      maxLength={maxlength}
     />
   )
 }
@@ -29,9 +33,10 @@ interface passwordViewType {
   placeholder: string,
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
   error?: string,
+  maxlength?: number,
 }
 export const PasswordInput = (props: passwordViewType) => {
-  const { className, label, password, placeholder, onChange, error } = props
+  const { className, label, password, placeholder, onChange, error, maxlength } = props
   const [passwordView, setPasswordView] = useState(false)
   return (
     <div className={`${className} form-item_password-wrap`}>
@@ -42,6 +47,7 @@ export const PasswordInput = (props: passwordViewType) => {
         placeholder={placeholder}
         value={password}
         onChange={onChange}
+        maxlength={maxlength}
       />
       <div className="form-item_error">{error}</div>
       <span
@@ -52,3 +58,41 @@ export const PasswordInput = (props: passwordViewType) => {
     </div>
   )
 }
+interface OptionType {
+  className: string,
+  content: string,
+  onChange: (oldContent: string, newContent: string) => void,
+  onDelete: (content: string) => void
+}
+export const OptionItem = (props: OptionType) => {
+  const { className, content, onChange, onDelete } = props
+  const [text, setText] = useState(content)
+  const [inputModel, setInputModel] = useState(false)
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      setInputModel(!inputModel)
+      onChange(content, text)
+    }
+  }
+  const handleDelete = () => {
+    onDelete(content)
+  }
+  return (
+    <li
+      className={`form-item_option-item ${className}`}
+      onDoubleClick={() => setInputModel(!inputModel)}
+    >
+      <span onClick={handleDelete}>X</span>
+      {!inputModel ?
+        <p>{text}</p>
+        :
+        <input
+          value={text}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
+          onKeyDown={handleKeyDown}
+        />}
+    </li>
+  )
+}
+

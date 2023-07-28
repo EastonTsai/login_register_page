@@ -2,9 +2,6 @@ export const validateAccount = (account: string) => {
   if (account.trim().length < 1) {
     return '帳號不能空白'
   }
-  if (account.trim().length < 3) {
-    return '帳號字數不足'
-  }
   const regex = /(?=.*[a-z])(?=.*[A-Z])/
   if (!regex.test(account)) {
     return '帳號格式錯誤'
@@ -32,7 +29,7 @@ export const validatePassword = (password: string) => {
     return '密碼格式錯誤'
   }
 }
-const validateCheckPassword = (password: string, checkPassword: string) => {
+export const validateCheckPassword = (password: string, checkPassword: string) => {
   if (checkPassword.trim().length < 1) {
     return '密碼不能空白'
   }
@@ -74,4 +71,14 @@ export const validateRegister = (account: string, email: string, password: strin
     return
   }
   return result
+}
+export const validateCreateOption = (
+  inputValue: string,
+  option: string[],
+) => {
+  const isRepeat = option.find(item => item === inputValue)
+  const newOption = inputValue.split(';')
+  if (inputValue.trim().length < 1) { return }
+  else if (isRepeat) { return }
+  return newOption
 }

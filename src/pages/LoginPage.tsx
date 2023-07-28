@@ -4,6 +4,7 @@ import { InputItem, PasswordInput } from "components/FormItem"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { validateLogin } from "methods/validateInput"
+import Footer from 'components/Footer';
 
 interface errorMessageType {
   accountError?: string | undefined,
@@ -22,9 +23,10 @@ const LoginPage = () => {
     const validateResult = validateLogin(account, password, checkPassword)
     if (validateResult) {
       setErrorMessage(validateResult)
-      return console.log('驗證失敗')
+      // console.log('驗證失敗')
+      return
     }
-    console.log('驗證通過')
+    // console.log('驗證通過')
     //! 前端驗證完成 , 開始發出請求
   }
   const handleChangeValue = (value: string, input: 'account' | 'password' | 'checkPassword') => {
@@ -53,7 +55,7 @@ const LoginPage = () => {
   return (
     <div className="login-page">
       <Header />
-      <div className="login">
+      <main className="login-page_main">
         <div className="login_container container">
           <form onSubmit={handleSubmit}>
             <h1>登入</h1>
@@ -61,9 +63,10 @@ const LoginPage = () => {
               <label htmlFor="account">帳號 : </label>
               <InputItem
                 id='account'
-                placeholder="必須包含英文大小寫及數字"
+                placeholder="請輸入帳號"
                 value={account}
                 onChange={(e) => handleChangeValue(e.target.value, 'account')}
+                maxlength={12}
               />
               <div className="form-item_error">{errorMessage?.accountError}</div>
             </div>
@@ -74,6 +77,7 @@ const LoginPage = () => {
               placeholder='請輸入密碼'
               onChange={(e) => handleChangeValue(e.target.value, 'password')}
               error={errorMessage?.passwordError}
+              maxlength={12}
             />
             <PasswordInput
               className={`form-item ${errorMessage?.checkPasswordError && 'error'}`}
@@ -86,9 +90,6 @@ const LoginPage = () => {
               }
               error={errorMessage?.checkPasswordError}
             />
-            <div className="form-error">
-
-            </div>
             <button className='form-button'>確認登入</button>
             <div className="login-register-button">
               <Link to='/register'>
@@ -97,7 +98,7 @@ const LoginPage = () => {
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   )
 }
