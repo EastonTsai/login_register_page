@@ -1,0 +1,58 @@
+@import './global.scss';
+
+.feature-list {
+  border: 1px solid #bbb;
+  padding: 0 1rem;
+  margin-top: 2rem;
+  overflow: hidden;
+
+  h2 {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+
+    >span {
+      cursor: pointer;
+      color: #ccc;
+      font-size: 1rem;
+      margin-left: 1rem;
+      transition: .3s;
+
+      &:hover {
+        color: #00f;
+      }
+    }
+  }
+
+  .detail {
+    max-height: 0;
+    opacity: 0;
+    transition: .5s;
+
+    >p {
+      padding: .5rem 0;
+      position: relative;
+    }
+
+    >p::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: -10px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background-color: #000;
+    }
+  }
+
+  .view {
+    max-height: 300px;
+    opacity: 1;
+    padding: 1rem 0;
+  }
+
+  h3 {
+    padding: .5rem 0;
+    color: #888;
+  }
+}

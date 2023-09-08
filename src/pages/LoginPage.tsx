@@ -1,10 +1,9 @@
 import 'styles/LoginPage.scss';
-import Header from "components/Header"
 import { InputItem, PasswordInput } from "components/FormItem"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { validateLogin } from "methods/validateInput"
-import Footer from 'components/Footer';
+import FeatureList from 'components/FeatureList';
 
 interface errorMessageType {
   accountError?: string | undefined,
@@ -18,16 +17,21 @@ const LoginPage = () => {
   const [checkPassword, setCheckPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState<errorMessageType>()
 
+  const clearValue = () => {
+    setAccount('')
+    setPassword('')
+    setCheckPassword('')
+  }
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const validateResult = validateLogin(account, password, checkPassword)
     if (validateResult) {
-      setErrorMessage(validateResult)
-      // console.log('驗證失敗')
-      return
+      return setErrorMessage(validateResult) //驗證失敗
     }
-    // console.log('驗證通過')
+    alert('完成前端驗證, 開始向 server 送出請求')
+
     //! 前端驗證完成 , 開始發出請求
+    clearValue()
   }
   const handleChangeValue = (value: string, input: 'account' | 'password' | 'checkPassword') => {
     if (input === 'account') {
@@ -54,7 +58,6 @@ const LoginPage = () => {
   }
   return (
     <div className="login-page">
-      <Header />
       <main className="login-page_main">
         <div className="login_container container">
           <form onSubmit={handleSubmit}>
@@ -99,6 +102,7 @@ const LoginPage = () => {
           </form>
         </div>
       </main>
+      <FeatureList />
     </div>
   )
 }

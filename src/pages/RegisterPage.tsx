@@ -1,10 +1,10 @@
 
 
-import Header from "components/Header"
 import { InputItem, PasswordInput } from "components/FormItem"
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { validateRegister } from "methods/validateInput"
+import FeatureList from "components/FeatureList"
 
 interface errorMessageType {
   accountError?: string,
@@ -20,18 +20,22 @@ const RegisterPage = () => {
   const [checkPassword, setCheckPassword] = useState('')
   const [errorMessage, setErrorMessage] = useState<errorMessageType>()
 
+  const clearValue = () => {
+    setAccount('')
+    setEmail('')
+    setPassword('')
+    setCheckPassword('')
+  }
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const validateResult = validateRegister(account, email, password, checkPassword)
     if (validateResult) {
-      setErrorMessage(validateResult)
-      // console.log('前端驗證失敗')
-      return
+      return setErrorMessage(validateResult) //前端驗證失敗
     }
-    // console.log('驗證通過')
+    alert('完成前端驗證, 開始向 server 送出請求')
     //! 前端驗證完成 , 開始發出請求
-
+    clearValue()
   }
   const handleChangeValue = (value: string, input: string) => {
     if (input === 'account') {
@@ -66,8 +70,7 @@ const RegisterPage = () => {
 
   return (
     <div className="login-page">
-      <Header />
-      <div className="login-page_main">
+      <main className="login-page_main">
         <div className="login_container container">
           <form onSubmit={handleSubmit}>
             <h1>註冊</h1>
@@ -119,7 +122,8 @@ const RegisterPage = () => {
             </div>
           </form>
         </div>
-      </div>
+      </main>
+      <FeatureList />
     </div>
   )
 }

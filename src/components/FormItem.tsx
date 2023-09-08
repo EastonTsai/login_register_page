@@ -1,10 +1,10 @@
+import 'styles/FormItem.scss';
 import { ReactComponent as EyeOpenIcon } from 'icons/eye alt.svg'
 import { ReactComponent as EyeCloseIcon } from 'icons/eye close.svg'
-import 'styles/FormItem.scss';
 import { useState } from 'react';
 
 interface inputItem {
-  id: string,
+  id?: string,
   type?: string,
   placeholder: string,
   value: string | number,
@@ -93,6 +93,20 @@ export const OptionItem = (props: OptionType) => {
           onKeyDown={handleKeyDown}
         />}
     </li>
+  )
+}
+export const ClassificationTag = (props: {
+  title: string,
+  onClick: () => void
+  active: boolean,
+}
+) => {
+  const { title, onClick, active } = props
+  return (
+    <li
+      className={`classification-tag ${active ? 'active' : ''}`}
+      onClick={onClick}
+    >{title}</li>
   )
 }
 

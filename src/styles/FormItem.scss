@@ -7,6 +7,33 @@
   width: 100%;
 }
 
+.image-input {
+  >label {
+    height: 100%;
+    width: 100%;
+  }
+
+  svg {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+
+    &:hover>path {
+      stroke: black;
+    }
+
+    >path {
+      stroke-width: .5px;
+      stroke: #aaa;
+      transition: .2s;
+    }
+  }
+
+  >input {
+    display: none;
+  }
+}
+
 .form-item_password-wrap {
   position: relative;
 
