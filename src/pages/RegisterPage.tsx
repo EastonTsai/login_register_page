@@ -116,7 +116,7 @@ const RegisterPage = () => {
 
             <button className='form-button'>申請註冊</button>
             <div className="login-register-button">
-              <Link to='/login'>
+              <Link to='/'>
                 <span>已有帳號</span>
               </Link>
             </div>

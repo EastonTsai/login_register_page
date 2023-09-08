@@ -3,7 +3,6 @@ export const validateAccount = (account: string) => {
   const regex = /(?=.*[a-z])(?=.*[A-Z])/
   if (!regex.test(account)) { return '帳號格式錯誤' }
 }
-
 export const validateEmail = (email: string) => {
   if (email.trim().length < 1) { return 'email 不能空白' }
   const regex = /([a-zA-Z0-9-_]+\@)([a-zA-Z0-9]+\.com)/
@@ -52,14 +51,4 @@ export const validateRegister = (account: string, email: string, password: strin
     return
   }
   return result
-}
-export const validateCreateOption = (
-  inputValue: string,
-  option: string[],
-) => {
-  const isRepeat = option.find(item => item === inputValue)
-  const newOption = inputValue.split(';')
-  if (inputValue.trim().length < 1) { return }
-  else if (isRepeat) { return }
-  return newOption
 }
